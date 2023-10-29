@@ -4,19 +4,20 @@ import NextImage from "next/image";
 
 import Flower from "@/public/images/flower.jpg";
 
-import { ContentList, SectionContent } from "@/content";
+import { ContentList, SectionContent, Content } from "@/content";
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import Magnet from "@/components/Magnet";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import NoteCard from "@/components/NoteCard";
 import PhotoSection from "@/components/PhotoSection";
 import { LayoutContext } from "@/context/layout";
 
-const Navigation = ContentList.filter(
-  (c) => c.type === "section" && c.navigation,
-).map((c: SectionContent) => ({ title: c.title, id: c.key }));
+function isSectionContent(content: Content): content is SectionContent {
+  return content.type === "section";
+}
+
+const Navigation = ContentList.filter(isSectionContent)
+  .filter((c) => c.navigation)
+  .map((c: SectionContent) => ({ title: c.title, id: c.key }));
 
 export default function Home() {
   const router = useRouter();
@@ -27,7 +28,7 @@ export default function Home() {
   useEffect(() => {
     const sectionKeys = Navigation.map((m) => m.id);
     const key = Object.keys(query).find((key) => sectionKeys.includes(key));
-    setActiveSection(key);
+    setActiveSection(key || null);
   }, [query]);
 
   const navContainerRef = useRef(null);
@@ -87,7 +88,7 @@ export default function Home() {
       }
       return acc;
     }, []);
-  }, [ContentList]);
+  }, []);
 
   return (
     <>
@@ -98,6 +99,7 @@ export default function Home() {
           layout="fill"
           placeholder="empty"
           objectFit="cover"
+          alt=""
         />
       </div>
 
@@ -139,23 +141,29 @@ export default function Home() {
         <div className="w-0 lg:w-[20%] flex flex-col" />
         <div className="w-full shrink-0 flex flex-col flex-1 lg:mx-5 pointer-events-auto">
           <div className="lg:hidden h-[200px]" />
-          {ContentList.map(({ key, title, pins, Content, type }) =>
-            type === "section" ? (
-              <SectionCard
-                className="mt-5"
-                key={key}
-                id={key}
-                title={title}
-                pins={pins}
-              >
-                <Content />
-              </SectionCard>
-            ) : (
-              <NoteCard key={key}>
-                <Content />
-              </NoteCard>
-            ),
-          )}
+          {ContentList.map((content) => {
+            if (content.type === "section") {
+              const { key, title, pins, Content } = content;
+              return (
+                <SectionCard
+                  className="mt-5"
+                  key={key}
+                  id={key}
+                  title={title}
+                  pins={pins}
+                >
+                  <Content />
+                </SectionCard>
+              );
+            } else {
+              const { key, Content } = content;
+              return (
+                <NoteCard key={key}>
+                  <Content />
+                </NoteCard>
+              );
+            }
+          })}
         </div>
         <div className="w-0 lg:w-[20%] flex flex-col pointer-events-none" />
       </div>

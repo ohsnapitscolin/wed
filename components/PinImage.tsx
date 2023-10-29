@@ -22,7 +22,7 @@ const PinImage = ({
     position: "absolute",
     zIndex,
     width: `${scaleSize(size, breakpoint !== "lg" ? 2 : 1)}vw`,
-    maxWidth: image["width"],
+    maxWidth: image.width,
     pointerEvents: "none",
   };
 
@@ -91,7 +91,7 @@ const PinImage = ({
   );
 };
 
-function scaleSize(size, scale) {
+function scaleSize(size: number, scale: number) {
   size = Math.max(0, Math.min(100, size));
   const min = 0.125 * scale;
   const max = 0.25 * scale;

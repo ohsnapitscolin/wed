@@ -1,6 +1,6 @@
 import React from "react";
 
-interface PropTypes extends React.ReactNode {}
+interface PropTypes extends React.HTMLProps<HTMLDivElement> {}
 
 const Card = ({ className = '', children }: PropTypes) => {
   return (

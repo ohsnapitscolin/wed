@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from "react";
+import React, { useState, createContext, useEffect } from "react";
 
 type Breakpoint = "sm" | "md" | "lg";
 
@@ -12,7 +12,7 @@ export const LayoutContext = createContext<{
   setZIndex: () => {},
 });
 
-export const LayoutProvider = ({ children }) => {
+export const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   const [zIndex, setZIndex] = useState(1);
   const [breakpoint, setBreakpoint] = useState<Breakpoint>("lg");
 

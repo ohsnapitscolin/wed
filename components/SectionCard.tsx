@@ -1,9 +1,8 @@
 import Card from "@/components/Card";
-import NextImage from "next/image";
 import { PinImageConfig } from "@/content";
 import PinImage from "@/components/PinImage";
 
-interface PropTypes extends React.ReactNode {
+interface PropTypes extends React.HTMLProps<HTMLDivElement> {
   id: string;
   title: string;
   pins: Array<PinImageConfig>;

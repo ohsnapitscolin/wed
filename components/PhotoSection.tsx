@@ -1,7 +1,7 @@
 import { PinImageConfig } from "@/content";
 import PinImage from "@/components/PinImage";
 
-interface PropTypes extends React.ReactNode {
+interface PropTypes extends React.HTMLProps<HTMLDivElement> {
   pins: Array<PinImageConfig>;
 }
 

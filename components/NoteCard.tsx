@@ -1,6 +1,7 @@
 import Card from "@/components/Card";
+import React from "react";
 
-const NoteCard = ({ className = "", children }: React.ReactNode) => {
+const NoteCard = ({ className = "", children }: React.HTMLProps<HTMLDivElement>) => {
   return (
     <Card className={`mt-5 relative flex flex-col !bg-lemongrass ${className}`}>
       <div className="py-[30px] px-10">

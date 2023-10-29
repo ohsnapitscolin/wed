@@ -1,6 +1,6 @@
 import Draggable from "react-draggable";
 
-const Magnet = ({ color, className }) => {
+const Magnet = ({ color, className = '' }: { color: string, className?: string}) => {
   return (
     <Draggable>
       <div

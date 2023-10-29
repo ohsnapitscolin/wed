@@ -1,16 +1,16 @@
-import React from "react";
-
 import Sections from "./sections";
 import Notes from "./notes";
 
 import Ben from "@/public/images/ben.jpg";
+import {MDXProps} from "mdx/types";
+import {StaticImageData} from "next/image";
 
 export type PinImageConfig = {
-  image: string;
+  image: StaticImageData;
   location: "bottom" | "left" | "right";
   rotation: number;
   offset: number;
-  overlap?: number;
+  overlap: number;
   size: number;
 };
 
@@ -18,7 +18,7 @@ export type SectionContent = {
   key: string;
   title: string;
   type: "section";
-  Content: React.ReactNode;
+  Content: (props: MDXProps) => JSX.Element;
   pins?: Array<PinImageConfig>;
   navigation: boolean;
 };
@@ -26,10 +26,10 @@ export type SectionContent = {
 export type NoteContent = {
   key: string;
   type: "note";
-  Content: React.ReactNode;
+  Content: (props: MDXProps) => JSX.Element;
 };
 
-type Content = SectionContent | NoteContent;
+export type Content = SectionContent | NoteContent;
 
 export const ContentList: Array<Content> = [
   {

@@ -81,7 +81,7 @@ const PinImage = ({
               alt=""
             />
             <div
-              className="rounded-full absolute h-5 w-5 top-5 left-1/2"
+              className="rounded-full absolute h-[18px] w-[18px] top-5 left-1/2"
               style={{ backgroundColor: "black" }}
             />
           </div>

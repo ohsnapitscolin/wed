@@ -8,6 +8,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import PhotoSection from "@/components/PhotoSection";
 import Section from "@/components/Section";
+import Footer from "@/components/Footer";
 
 const Navigation = ContentList.filter((c) => c.navigation).map(
   (c: SectionContent) => ({ title: c.title, id: c.key }),
@@ -75,8 +76,8 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <div className="fixed top-0 left-0 right-0 bottom-0 z-[-2]">
+    <div className="relative lg:pb-60">
+      <div className="fixed w-screen h-screen top-0 z-[-2]">
         <NextImage
           src={Flower}
           quality={100}
@@ -92,7 +93,7 @@ export default function Home() {
           className="w-full lg:w-[20%] group"
           onClick={() => setQuery(null)}
         >
-          <Card className="px-4 py-8 lg:py-12 text-center font-pin text-4xl mb-3 lg:mb-0 hover:bg-white bg-white/50 lg:bg-pistachio/100 backdrop-blur">
+          <Card className="px-4 py-8 lg:py-12 text-center font-pin text-3xl md:text-4xl mb-3 bg-white/40 lg:mb-0 lg:bg-pistachio/100 lg:hover:bg-white backdrop-blur">
             Colin & Lian
           </Card>
         </button>
@@ -108,11 +109,11 @@ export default function Home() {
                 ref={(el) => (navItemRefs.current[id] = el)}
                 key={id}
                 onClick={() => setQuery(id)}
-                className={`w-[225px] shrink-0 lg:w-full mr-4 lg:mr-0 lg:mb-4 last-of-type:m-0 ${
+                className={`w-[225px] shrink-0 lg:w-full mr-4 lg:mr-0 lg:mb-3 last-of-type:m-0 ${
                   active && "underline"
                 }`}
               >
-                <Card className="px-4 py-6 lg:py-9 hover:bg-white">
+                <Card className="px-4 py-6 lg:py-9 hover:bg-white bg-pistachio">
                   {title}
                 </Card>
               </button>
@@ -124,7 +125,7 @@ export default function Home() {
       <div className="relative lg:z-[2] flex max-w-[1750px] flex-row mx-auto px-3 lg:px-5 pointer-events-none overflow-hidden">
         <div className="w-0 lg:w-[20%] flex flex-col" />
         <div className="w-full shrink-0 flex flex-col flex-1 lg:mx-5 pointer-events-auto">
-          <div className="lg:hidden h-[120px]" />
+          <div className="lg:hidden h-[112px]" />
           {ContentList.map((content) => (
             <Section
               key={content.key}
@@ -139,6 +140,7 @@ export default function Home() {
       <div className="lg:hidden">
         <PhotoSection pins={allPins} />
       </div>
-    </>
+      <Footer />
+    </div>
   );
 }

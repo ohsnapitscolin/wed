@@ -86,8 +86,15 @@ export const ContentList: Array<SectionContent> = [
   },
   {
     key: "details",
-    title: "🌴 Things to Do",
+    title: "🕺 More Details",
     Content: Sections.Details,
+    navigation: true,
+    accordion: true,
+  },
+  {
+    key: "todo",
+    title: "🌴 Things to Do",
+    Content: Sections.Todo,
     navigation: true,
     accordion: true,
   },

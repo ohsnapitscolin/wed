@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     screens: {
       md: "600px",
-      lg: "800px",
+      lg: "1000px",
     },
     fontFamily: {
       pin: ["var(--font-pin-dot)"],

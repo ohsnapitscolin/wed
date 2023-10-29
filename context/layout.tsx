@@ -19,7 +19,7 @@ export const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const handleResize = () => {
       const breakpoint =
-        window.innerWidth < 600 ? "sm" : window.innerWidth < 800 ? "md" : "lg";
+        window.innerWidth < 600 ? "sm" : window.innerWidth < 1000 ? "md" : "lg";
       setBreakpoint(breakpoint);
     };
 

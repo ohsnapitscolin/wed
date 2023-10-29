@@ -31,7 +31,7 @@ const SectionCard = ({ className, content }: PropTypes) => {
   const hasBottomImage = pins?.find((p) => p.location === "bottom");
 
   return (
-    <div id={key} className={hasBottomImage && "mb-24 lg:mb-52"}>
+    <div id={key} className={hasBottomImage && "mb-24 md:mb-52"}>
       <Card className={`relative flex flex-col ${className} overflow-visible`}>
         <div className="w-full flex flex-row pb-3 pt-6 pb-3 px-8">
           <span>{title || ""}</span>
@@ -60,18 +60,18 @@ const SectionAccordion = ({ className, content }: PropTypes) => {
       <Accordion.Item className="group" value="item-1">
         <Card className={`relative flex flex-col ${className} overflow-hidden`}>
           <Accordion.Trigger className="w-full group">
-            <div className="flex flex-row justify-between pb-3 pt-6 pb-3 px-8">
+            <div className="flex flex-row justify-between pb-6 pt-6 px-8">
               <span>{title || ""}</span>
               <span className="group-data-[state=open]:hidden group-data-[state=closed]:block">
                 +
               </span>
               <span className="group-data-[state=open]:block group-data-[state=closed]:hidden">
-                -
+                —
               </span>
             </div>
           </Accordion.Trigger>
           <Accordion.Content className="data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp rounded-b-2xl overflow-hidden">
-            <div className="px-8 pb-20 lg:px-16 border-t border-black w-full">
+            <div className="px-8 pb-12 md:px-16 border-t border-black w-full">
               <div className="content">
                 <Content />
               </div>

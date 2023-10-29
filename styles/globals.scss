@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-super-studio);
+  font-size: 1.125em;
+  background-color: grey;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.content {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-family: var(--font-pin-dot);
+    font-size: 42px;
+    line-height: 100%;
+    margin: 60px 0 30px;
+  }
+
+  h3 {
+    font-family: var(--font-pin-dot);
+    font-size: 42px;
+    line-height: 100%;
+    margin: 80px 0 30px;
+  }
+
+  ul {
+    margin-bottom: 18px;
+
+    list-style: disc;
+    padding-left: 32px;
+
+    li {
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  ol {
+    margin-bottom: 18px;
+
+    li {
+      &:before {
+        content: "→ ";
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}

@@ -1,40 +1,54 @@
 import Card from "@/components/Card";
-import SectionCard from "@/components/SectionCard";
 import NextImage from "next/image";
 
 import Flower from "@/public/images/flower.jpg";
 
-import { ContentList, SectionContent, Content } from "@/content";
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { ContentList, SectionContent } from "@/content";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/router";
-import NoteCard from "@/components/NoteCard";
 import PhotoSection from "@/components/PhotoSection";
-import { LayoutContext } from "@/context/layout";
+import Section from "@/components/Section";
 
-function isSectionContent(content: Content): content is SectionContent {
-  return content.type === "section";
-}
-
-const Navigation = ContentList.filter(isSectionContent)
-  .filter((c) => c.navigation)
-  .map((c: SectionContent) => ({ title: c.title, id: c.key }));
+const Navigation = ContentList.filter((c) => c.navigation).map(
+  (c: SectionContent) => ({ title: c.title, id: c.key }),
+);
 
 export default function Home() {
   const router = useRouter();
   const { query } = router;
 
-  const { breakpoint } = useContext(LayoutContext);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  const navContainerRef = useRef(null);
+  const navItemRefs = useRef({});
+
+  const scrollTo = useCallback(() => {
+    let verticalScrollPosition = 0;
+
+    if (activeSection) {
+      // Vertical calculations
+      const targetSection = document.getElementById(activeSection);
+      verticalScrollPosition =
+        targetSection.getBoundingClientRect().top + window.pageYOffset;
+    }
+
+    const offset = 20;
+
+    // Programmatic vertical scroll
+    window.scrollTo({
+      top: verticalScrollPosition - offset,
+      behavior: "smooth",
+    });
+  }, [activeSection]);
 
   useEffect(() => {
     const sectionKeys = Navigation.map((m) => m.id);
     const key = Object.keys(query).find((key) => sectionKeys.includes(key));
     setActiveSection(key || null);
-  }, [query]);
-
-  const navContainerRef = useRef(null);
-  const navItemRefs = useRef({});
-
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+    if (!key) {
+      scrollTo();
+    }
+  }, [query, scrollTo]);
 
   const setQuery = (param: string | null) => {
     void router.push(
@@ -48,42 +62,12 @@ export default function Home() {
   };
 
   useEffect(() => {
-    let verticalScrollPosition = 0;
-    let horizontalScrollPosition = 0;
-
-    if (activeSection) {
-      // Horizontal calculations
-      const containerWidth = navContainerRef.current.offsetWidth;
-      const clickedItem = navItemRefs.current[activeSection];
-      const clickedItemWidth = clickedItem.offsetWidth;
-      const clickedItemLeft = clickedItem.offsetLeft;
-      horizontalScrollPosition =
-        clickedItemLeft - containerWidth / 2 + clickedItemWidth / 2;
-
-      // Vertical calculations
-      const targetSection = document.getElementById(activeSection);
-      verticalScrollPosition =
-        targetSection.getBoundingClientRect().top + window.pageYOffset;
-    }
-
-    const offset = breakpoint === "lg" ? 0 : 200;
-
-    // Programmatic horizontal scroll
-    navContainerRef.current.scrollTo({
-      left: horizontalScrollPosition,
-      behavior: "smooth",
-    });
-
-    // Programmatic vertical scroll
-    window.scrollTo({
-      top: verticalScrollPosition - offset,
-      behavior: "smooth",
-    });
-  }, [activeSection]);
+    scrollTo();
+  }, [activeSection, scrollTo]);
 
   const allPins = useMemo(() => {
     return ContentList.reduce((acc, c) => {
-      if (c.type === "section" && Array.isArray(c.pins)) {
+      if (Array.isArray(c.pins)) {
         return acc.concat(c.pins);
       }
       return acc;
@@ -108,14 +92,14 @@ export default function Home() {
           className="w-full lg:w-[20%] group"
           onClick={() => setQuery(null)}
         >
-          <Card className="px-4 py-8 lg:py-12 text-center font-pin text-4xl mb-3 lg:mb-0 hover:bg-white">
+          <Card className="px-4 py-8 lg:py-12 text-center font-pin text-4xl mb-3 lg:mb-0 hover:bg-white bg-white/50 lg:bg-pistachio/100 backdrop-blur">
             Colin & Lian
           </Card>
         </button>
         <div className="flex-1 shrink-0" />
         <div
           ref={navContainerRef}
-          className="lg:w-[20%] flex lg:flex-col overflow-x-scroll -mx-5 lg:mx-0 px-5 lg:px-0 scrollbar-hide"
+          className="hidden lg:flex w-[20%] flex flex-col px-0"
         >
           {Navigation.map(({ title, id }) => {
             const active = activeSection === id;
@@ -140,30 +124,14 @@ export default function Home() {
       <div className="relative lg:z-[2] flex max-w-[1750px] flex-row mx-auto px-3 lg:px-5 pointer-events-none overflow-hidden">
         <div className="w-0 lg:w-[20%] flex flex-col" />
         <div className="w-full shrink-0 flex flex-col flex-1 lg:mx-5 pointer-events-auto">
-          <div className="lg:hidden h-[200px]" />
-          {ContentList.map((content) => {
-            if (content.type === "section") {
-              const { key, title, pins, Content } = content;
-              return (
-                <SectionCard
-                  className="mt-5"
-                  key={key}
-                  id={key}
-                  title={title}
-                  pins={pins}
-                >
-                  <Content />
-                </SectionCard>
-              );
-            } else {
-              const { key, Content } = content;
-              return (
-                <NoteCard key={key}>
-                  <Content />
-                </NoteCard>
-              );
-            }
-          })}
+          <div className="lg:hidden h-[120px]" />
+          {ContentList.map((content) => (
+            <Section
+              key={content.key}
+              className="mt-2 lg:mt-5"
+              content={content}
+            />
+          ))}
         </div>
         <div className="w-0 lg:w-[20%] flex flex-col pointer-events-none" />
       </div>

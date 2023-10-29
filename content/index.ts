@@ -2,8 +2,8 @@ import Sections from "./sections";
 import Notes from "./notes";
 
 import Ben from "@/public/images/ben.jpg";
-import {MDXProps} from "mdx/types";
-import {StaticImageData} from "next/image";
+import { MDXProps } from "mdx/types";
+import { StaticImageData } from "next/image";
 
 export type PinImageConfig = {
   image: StaticImageData;
@@ -17,25 +17,17 @@ export type PinImageConfig = {
 export type SectionContent = {
   key: string;
   title: string;
-  type: "section";
   Content: (props: MDXProps) => JSX.Element;
+  Note?: (props: MDXProps) => JSX.Element;
   pins?: Array<PinImageConfig>;
   navigation: boolean;
+  accordion: boolean;
 };
 
-export type NoteContent = {
-  key: string;
-  type: "note";
-  Content: (props: MDXProps) => JSX.Element;
-};
-
-export type Content = SectionContent | NoteContent;
-
-export const ContentList: Array<Content> = [
+export const ContentList: Array<SectionContent> = [
   {
     key: "welcome",
     title: "💕 We’re getting married!",
-    type: "section",
     Content: Sections.Welcome,
     pins: [
       {
@@ -48,25 +40,22 @@ export const ContentList: Array<Content> = [
       },
     ],
     navigation: false,
+    accordion: false,
   },
   {
     key: "venue",
     title: "🥑 Our Venue",
-    type: "section",
     Content: Sections.Venue,
+    Note: Notes.Venue,
     navigation: true,
-  },
-  {
-    key: "venue-note",
-    type: "note",
-    Content: Notes.Venue,
+    accordion: true,
   },
   {
     key: "accommodations",
     title: "🛏️ Accommodations",
-    type: "section",
     Content: Sections.Accommodations,
-    navigation: true,
+
+    Note: Notes.Accommodations,
     pins: [
       {
         image: Ben,
@@ -85,24 +74,21 @@ export const ContentList: Array<Content> = [
         size: 25,
       },
     ],
-  },
-  {
-    key: "accommodations-note",
-    type: "note",
-    Content: Notes.Accommodations,
+    navigation: true,
+    accordion: true,
   },
   {
     key: "travel",
     title: "🌎 Travel",
-    type: "section",
     Content: Sections.Travel,
     navigation: true,
+    accordion: true,
   },
   {
     key: "details",
     title: "🌴 Things to Do",
-    type: "section",
     Content: Sections.Details,
     navigation: true,
+    accordion: true,
   },
 ];

@@ -16,12 +16,12 @@ const PinImage = ({
 
   const [dragging, setDragging] = useState(false);
 
-  const { location, rotation, image, overlap, offset, size } = config;
+  const { location, rotation, image, overlap, offset, size, color } = config;
 
   let style: React.CSSProperties = {
     position: "absolute",
     zIndex,
-    width: `${scaleSize(size, breakpoint !== "lg" ? 2 : 1)}vw`,
+    width: `${scaleSize(size, section ? 3 : breakpoint !== "lg" ? 2 : 1)}vw`,
     maxWidth: image.width,
     pointerEvents: "none",
   };
@@ -65,7 +65,7 @@ const PinImage = ({
       <Draggable onStart={handleDragStart} onStop={() => setDragging(false)}>
         <div>
           <div
-            className="relative"
+            className="relative rounded-xl overflow-hidden"
             style={{
               transform: `rotate(${rotation}deg)`,
               cursor: dragging ? "grabbing" : "grab",
@@ -82,7 +82,10 @@ const PinImage = ({
             />
             <div
               className="rounded-full absolute h-[18px] w-[18px] top-5 left-1/2"
-              style={{ backgroundColor: "black" }}
+              style={{
+                backgroundColor: color,
+                boxShadow: "1px 1px 4px 0 rgba(0, 0, 0, 0.5)",
+              }}
             />
           </div>
         </div>

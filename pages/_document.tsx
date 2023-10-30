@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <title>Colin & Lian</title>
-        <meta property="og:title" content="My page title" key="title" />
+        <meta property="og:title" content="Colin & Lian" key="title" />
         <meta
           property="og:image"
           content="https://colinandlian.com/images/seo.png"

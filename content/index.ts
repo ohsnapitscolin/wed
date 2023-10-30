@@ -24,7 +24,7 @@ export type PinImageConfig = {
   offset: number;
   overlap: number;
   size: number;
-  color: string;
+  color?: string;
 };
 
 export type SectionContent = {
@@ -35,6 +35,10 @@ export type SectionContent = {
   pins?: Array<PinImageConfig>;
   navigation: boolean;
   accordion: boolean;
+  magnet?: {
+    color?: string;
+    offset?: number,
+  }
 };
 
 export const ContentList: Array<SectionContent> = [
@@ -50,7 +54,6 @@ export const ContentList: Array<SectionContent> = [
         overlap: 35,
         offset: 50,
         size: 30,
-        color: "blue",
       },
     ],
     navigation: false,
@@ -71,7 +74,6 @@ export const ContentList: Array<SectionContent> = [
         overlap: 10,
         offset: 10,
         size: 40,
-        color: "black",
       },
       {
         image: Nashville,
@@ -80,7 +82,6 @@ export const ContentList: Array<SectionContent> = [
         overlap: 5,
         offset: 60,
         size: 60,
-        color: "red",
       },
     ],
   },
@@ -98,7 +99,6 @@ export const ContentList: Array<SectionContent> = [
         overlap: 2,
         offset: 50,
         size: 25,
-        color: "green",
       },
       {
         image: Hawaii,
@@ -107,7 +107,6 @@ export const ContentList: Array<SectionContent> = [
         overlap: 0,
         offset: 15,
         size: 40,
-        color: "yellow",
       },
       {
         image: Engagement,
@@ -116,7 +115,6 @@ export const ContentList: Array<SectionContent> = [
         overlap: 10,
         offset: 75,
         size: 40,
-        color: "orange",
       },
       {
         image: Park,
@@ -125,7 +123,6 @@ export const ContentList: Array<SectionContent> = [
         overlap: 2,
         offset: 98,
         size: 25,
-        color: "pink",
       },
     ],
     navigation: true,
@@ -143,7 +140,6 @@ export const ContentList: Array<SectionContent> = [
         overlap: 5,
         offset: 25,
         size: 25,
-        color: "grey",
       },
     ],
     navigation: true,
@@ -160,8 +156,7 @@ export const ContentList: Array<SectionContent> = [
         rotation: 10,
         overlap: 5,
         offset: 50,
-        size: 30,
-        color: "black",
+        size: 50,
       },
       {
         image: Disney,
@@ -170,7 +165,9 @@ export const ContentList: Array<SectionContent> = [
         overlap: 5,
         offset: 85,
         size: 40,
-        color: "red",
+        magnet: {
+          offset: 15
+        }
       },
     ],
     navigation: true,
@@ -188,7 +185,9 @@ export const ContentList: Array<SectionContent> = [
         overlap: 25,
         offset: 30,
         size: 40,
-        color: "green",
+        magnet: {
+          offset: 65
+        }
       },
       {
         image: Letchworth,
@@ -197,7 +196,6 @@ export const ContentList: Array<SectionContent> = [
         overlap: 5,
         offset: 65,
         size: 40,
-        color: "orange",
       },
     ],
     navigation: true,

@@ -16,7 +16,7 @@ const PinImage = ({
 
   const [dragging, setDragging] = useState(false);
 
-  const { location, rotation, image, overlap, offset, size, color } = config;
+  const { location, rotation, image, overlap, offset, size, magnet } = config;
 
   let style: React.CSSProperties = {
     position: "absolute",
@@ -81,10 +81,11 @@ const PinImage = ({
               alt=""
             />
             <div
-              className="rounded-full absolute h-[18px] w-[18px] top-5 left-1/2"
+              className="rounded-full absolute h-5 w-5 top-5"
               style={{
-                backgroundColor: color,
-                boxShadow: "1px 1px 4px 0 rgba(0, 0, 0, 0.5)",
+                left: `${magnet?.offset || 50}%`,
+                backgroundColor: magnet?.color || "#D9D9D9",
+                boxShadow: "1px 1px 2px 0 rgba(0, 0, 0, 0.5)",
               }}
             />
           </div>

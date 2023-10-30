@@ -8,7 +8,7 @@ export default function Document() {
         <meta property="og:title" content="Colin & Lian" key="title" />
         <meta
           property="og:image"
-          content="https://colinandlian.com/images/seo.png"
+          content="https://colinandlian.com/images/seo.jpg"
         />
         <link rel="shortcut icon" href="/icon.png" />
       </Head>

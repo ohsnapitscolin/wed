@@ -9,7 +9,7 @@ html {
 body {
   font-family: var(--font-super-studio);
   font-size: 1em;
-  background-color: #68764D;
+  background-color: #68764d;
 
   @media (min-width: 600px) {
     font-size: 1.125em;
@@ -34,6 +34,13 @@ p {
 .content {
   & > :last-child {
     margin-bottom: 0;
+  }
+
+  a,
+  u {
+    text-underline-offset: 2px;
+    text-decoration: underline;
+    text-decoration-thickness: 0.8px;
   }
 
   h2 {

@@ -24,7 +24,10 @@ export type PinImageConfig = {
   offset: number;
   overlap: number;
   size: number;
-  color?: string;
+  magnet?: {
+    color?: string;
+    offset?: number;
+  };
 };
 
 export type SectionContent = {
@@ -35,10 +38,6 @@ export type SectionContent = {
   pins?: Array<PinImageConfig>;
   navigation: boolean;
   accordion: boolean;
-  magnet?: {
-    color?: string;
-    offset?: number,
-  }
 };
 
 export const ContentList: Array<SectionContent> = [
@@ -166,8 +165,8 @@ export const ContentList: Array<SectionContent> = [
         offset: 85,
         size: 40,
         magnet: {
-          offset: 15
-        }
+          offset: 15,
+        },
       },
     ],
     navigation: true,
@@ -186,8 +185,8 @@ export const ContentList: Array<SectionContent> = [
         offset: 30,
         size: 40,
         magnet: {
-          offset: 65
-        }
+          offset: 65,
+        },
       },
       {
         image: Letchworth,

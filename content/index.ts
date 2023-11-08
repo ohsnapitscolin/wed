@@ -6,7 +6,6 @@ import BBQ from "@/public/images/bbq.png";
 import Ben from "@/public/images/ben.png";
 import Durham from "@/public/images/durham.png";
 import KingTides from "@/public/images/kingtides.png";
-import Graduation from "@/public/images/graduation.png";
 import Nashville from "@/public/images/nashville.png";
 import Joshua from "@/public/images/joshua.png";
 import Then from "@/public/images/then.png";
@@ -48,7 +47,7 @@ export const ContentList: Array<SectionContent> = [
         image: Now,
         location: "bottom",
         rotation: -12,
-        overlap: 35,
+        overlap: 25,
         offset: 50,
         size: 15,
       },
@@ -63,16 +62,6 @@ export const ContentList: Array<SectionContent> = [
     Note: Notes.Venue,
     navigation: true,
     accordion: true,
-    pins: [
-      {
-        image: KingTides,
-        location: "left",
-        rotation: 12,
-        overlap: 5,
-        offset: 60,
-        size: 60,
-      },
-    ],
   },
   {
     key: "accommodations",
@@ -83,18 +72,18 @@ export const ContentList: Array<SectionContent> = [
     pins: [
       {
         image: Ben,
-        location: "right",
+        location: "left",
         rotation: -12,
         overlap: 0,
-        offset: 15,
+        offset: 10,
         size: 35,
       },
       {
         image: Nashville,
-        location: "left",
+        location: "right",
         rotation: -7,
         overlap: 10,
-        offset: 40,
+        offset: 35,
         size: 60,
       },
       {
@@ -108,7 +97,7 @@ export const ContentList: Array<SectionContent> = [
       {
         image: Joshua,
         location: "left",
-        rotation: 8,
+        rotation: 15,
         overlap: 5,
         offset: 95,
         size: 35,
@@ -125,7 +114,7 @@ export const ContentList: Array<SectionContent> = [
       {
         image: BBQ,
         location: "right",
-        rotation: 15,
+        rotation: -8,
         overlap: 5,
         offset: 40,
         size: 60,
@@ -140,9 +129,9 @@ export const ContentList: Array<SectionContent> = [
     Content: Sections.Details,
     pins: [
       {
-        image: Graduation,
+        image: KingTides,
         location: "left",
-        rotation: -10,
+        rotation: 5,
         overlap: 7,
         offset: 50,
         size: 60,
@@ -169,9 +158,9 @@ export const ContentList: Array<SectionContent> = [
       },
       {
         image: Then,
-        location: "left",
+        location: "right",
         rotation: 15,
-        overlap: 10,
+        overlap: 150,
         offset: 95,
         size: 15,
       },

@@ -76,7 +76,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative lg:pb-60 overflow-hidden">
+    <div className="relative lg:pb-80 overflow-hidden">
       <div className="fixed w-screen h-screen top-0 z-[-2]">
         <NextImage
           src={Flower}
@@ -93,7 +93,7 @@ export default function Home() {
           className="w-full lg:w-[20%] group"
           onClick={() => setQuery(null)}
         >
-          <Card className="px-4 py-8 lg:py-12 text-center font-pin text-3xl md:text-[42px] mb-3 bg-white/40 lg:mb-0 lg:bg-pistachio/100 lg:hover:bg-white backdrop-blur">
+          <Card className="px-4 py-8 lg:py-12 text-center font-pin text-[32px] md:text-[42px] mb-3 bg-white/40 lg:mb-0 lg:bg-pistachio/100 lg:hover:bg-white backdrop-blur">
             Colin & Lian
           </Card>
         </button>
@@ -122,11 +122,11 @@ export default function Home() {
       <div className="relative lg:z-[2] flex max-w-[1750px] flex-row mx-auto px-3 lg:px-5 pointer-events-none">
         <div className="w-0 lg:w-[20%] flex flex-col" />
         <div className="w-full shrink-0 flex flex-col flex-1 lg:mx-5 pointer-events-auto">
-          <div className="lg:hidden h-[112px]" />
+          <div className="lg:hidden h-[128px]" />
           {ContentList.map((content) => (
             <Section
               key={content.key}
-              className="mt-2 lg:mt-5"
+              className="mt-[6px] lg:mt-5"
               content={content}
             />
           ))}

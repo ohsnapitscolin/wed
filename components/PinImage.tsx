@@ -21,7 +21,10 @@ const PinImage = ({
   let style: React.CSSProperties = {
     position: "absolute",
     zIndex,
-    width: `${scaleSize(size, section ? 3 : breakpoint !== "lg" ? 2 : 1)}vw`,
+    width: `${scaleSize(
+      size,
+      section || breakpoint === "sm" ? 3 : breakpoint !== "lg" ? 2 : 1,
+    )}vw`,
     maxWidth: image.width,
     pointerEvents: "none",
   };
@@ -65,7 +68,7 @@ const PinImage = ({
       <Draggable onStart={handleDragStart} onStop={() => setDragging(false)}>
         <div>
           <div
-            className="relative rounded-xl overflow-hidden"
+            className="relative rounded-lg overflow-hidden"
             style={{
               transform: `rotate(${rotation}deg)`,
               cursor: dragging ? "grabbing" : "grab",
@@ -81,7 +84,7 @@ const PinImage = ({
               alt=""
             />
             <div
-              className="rounded-full absolute h-5 w-5 top-5"
+              className="rounded-full absolute h-4 w-4 lg:h-5 lg:w-5 top-5"
               style={{
                 left: `${magnet?.offset || 50}%`,
                 backgroundColor: magnet?.color || "#D9D9D9",

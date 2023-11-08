@@ -31,7 +31,7 @@ const SectionCard = ({ className, content }: PropTypes) => {
   const hasBottomImage = pins?.find((p) => p.location === "bottom");
 
   return (
-    <div id={key} className={hasBottomImage && "mb-24 md:mb-52"}>
+    <div id={key} className={hasBottomImage && "mb-24 md:mb-64"}>
       <Card className={`relative flex flex-col ${className} overflow-visible`}>
         <div className="w-full flex flex-row pb-3 pt-6 pb-3 px-8">
           <span>{title || ""}</span>

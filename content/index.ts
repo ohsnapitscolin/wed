@@ -1,18 +1,16 @@
 import Sections from "./sections";
 import Notes from "./notes";
 
-import Bandana from "@/public/images/bandana.jpg";
-import Bear from "@/public/images/bear.jpg";
-import Ben from "@/public/images/ben.jpg";
-import Disney from "@/public/images/disney.jpg";
-import Durham from "@/public/images/durham.jpg";
-import Engagement from "@/public/images/engagement.jpg";
-import Graduation from "@/public/images/graduation.jpg";
-import Hawaii from "@/public/images/hawaii.jpg";
-import Letchworth from "@/public/images/letchworth.jpg";
-import Nashville from "@/public/images/nashville.jpg";
-import Park from "@/public/images/park.jpg";
-import Polaroid from "@/public/images/polaroid.jpg";
+import Babies from "@/public/images/babies.png";
+import BBQ from "@/public/images/bbq.png";
+import Ben from "@/public/images/ben.png";
+import Durham from "@/public/images/durham.png";
+import KingTides from "@/public/images/kingtides.png";
+import Graduation from "@/public/images/graduation.png";
+import Nashville from "@/public/images/nashville.png";
+import Joshua from "@/public/images/joshua.png";
+import Then from "@/public/images/then.png";
+import Now from "@/public/images/now.png";
 
 import { MDXProps } from "mdx/types";
 import { StaticImageData } from "next/image";
@@ -47,12 +45,12 @@ export const ContentList: Array<SectionContent> = [
     Content: Sections.Welcome,
     pins: [
       {
-        image: Polaroid,
+        image: Now,
         location: "bottom",
-        rotation: -17,
+        rotation: -12,
         overlap: 35,
         offset: 50,
-        size: 30,
+        size: 15,
       },
     ],
     navigation: false,
@@ -67,17 +65,9 @@ export const ContentList: Array<SectionContent> = [
     accordion: true,
     pins: [
       {
-        image: Ben,
-        location: "right",
-        rotation: 5,
-        overlap: 10,
-        offset: 10,
-        size: 40,
-      },
-      {
-        image: Nashville,
+        image: KingTides,
         location: "left",
-        rotation: -4,
+        rotation: 12,
         overlap: 5,
         offset: 60,
         size: 60,
@@ -92,36 +82,36 @@ export const ContentList: Array<SectionContent> = [
     Note: Notes.Accommodations,
     pins: [
       {
-        image: Bandana,
-        location: "left",
-        rotation: -3,
-        overlap: 2,
-        offset: 50,
-        size: 25,
-      },
-      {
-        image: Hawaii,
+        image: Ben,
         location: "right",
-        rotation: 25,
+        rotation: -12,
         overlap: 0,
         offset: 15,
-        size: 40,
+        size: 35,
       },
       {
-        image: Engagement,
+        image: Nashville,
+        location: "left",
+        rotation: -7,
+        overlap: 10,
+        offset: 40,
+        size: 60,
+      },
+      {
+        image: Durham,
         location: "right",
         rotation: 2,
         overlap: 10,
-        offset: 75,
-        size: 40,
+        offset: 70,
+        size: 35,
       },
       {
-        image: Park,
+        image: Joshua,
         location: "left",
-        rotation: 10,
-        overlap: 2,
-        offset: 98,
-        size: 25,
+        rotation: 8,
+        overlap: 5,
+        offset: 95,
+        size: 35,
       },
     ],
     navigation: true,
@@ -133,12 +123,12 @@ export const ContentList: Array<SectionContent> = [
     Content: Sections.Travel,
     pins: [
       {
-        image: Durham,
+        image: BBQ,
         location: "right",
-        rotation: -1,
+        rotation: 15,
         overlap: 5,
-        offset: 25,
-        size: 25,
+        offset: 40,
+        size: 60,
       },
     ],
     navigation: true,
@@ -152,21 +142,10 @@ export const ContentList: Array<SectionContent> = [
       {
         image: Graduation,
         location: "left",
-        rotation: 10,
-        overlap: 5,
+        rotation: -10,
+        overlap: 7,
         offset: 50,
-        size: 50,
-      },
-      {
-        image: Disney,
-        location: "right",
-        rotation: -12,
-        overlap: 5,
-        offset: 85,
-        size: 40,
-        magnet: {
-          offset: 15,
-        },
+        size: 60,
       },
     ],
     navigation: true,
@@ -178,23 +157,23 @@ export const ContentList: Array<SectionContent> = [
     Content: Sections.Todo,
     pins: [
       {
-        image: Bear,
+        image: Babies,
         location: "right",
-        rotation: 3,
-        overlap: 25,
+        rotation: -12,
+        overlap: 15,
         offset: 30,
-        size: 40,
+        size: 30,
         magnet: {
           offset: 65,
         },
       },
       {
-        image: Letchworth,
+        image: Then,
         location: "left",
-        rotation: -6,
-        overlap: 5,
-        offset: 65,
-        size: 40,
+        rotation: 15,
+        overlap: 10,
+        offset: 95,
+        size: 15,
       },
     ],
     navigation: true,

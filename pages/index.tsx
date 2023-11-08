@@ -76,7 +76,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative lg:pb-60">
+    <div className="relative lg:pb-60 overflow-hidden">
       <div className="fixed w-screen h-screen top-0 z-[-2]">
         <NextImage
           src={Flower}
@@ -93,7 +93,7 @@ export default function Home() {
           className="w-full lg:w-[20%] group"
           onClick={() => setQuery(null)}
         >
-          <Card className="px-4 py-8 lg:py-12 text-center font-pin text-3xl md:text-4xl mb-3 bg-white/40 lg:mb-0 lg:bg-pistachio/100 lg:hover:bg-white backdrop-blur">
+          <Card className="px-4 py-8 lg:py-12 text-center font-pin text-3xl md:text-[42px] mb-3 bg-white/40 lg:mb-0 lg:bg-pistachio/100 lg:hover:bg-white backdrop-blur">
             Colin & Lian
           </Card>
         </button>
@@ -103,15 +103,12 @@ export default function Home() {
           className="hidden lg:flex w-[20%] flex flex-col px-0"
         >
           {Navigation.map(({ title, id }) => {
-            const active = activeSection === id;
             return (
               <button
                 ref={(el) => (navItemRefs.current[id] = el)}
                 key={id}
                 onClick={() => setQuery(id)}
-                className={`w-[225px] shrink-0 lg:w-full mr-4 lg:mr-0 lg:mb-3 last-of-type:m-0 ${
-                  active && "underline"
-                }`}
+                className={`w-[225px] shrink-0 lg:w-full mr-4 lg:mr-0 lg:mb-3 last-of-type:m-0`}
               >
                 <Card className="px-4 py-6 lg:py-9 hover:bg-white bg-pistachio">
                   {title}
@@ -122,7 +119,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative lg:z-[2] flex max-w-[1750px] flex-row mx-auto px-3 lg:px-5 pointer-events-none overflow-hidden">
+      <div className="relative lg:z-[2] flex max-w-[1750px] flex-row mx-auto px-3 lg:px-5 pointer-events-none">
         <div className="w-0 lg:w-[20%] flex flex-col" />
         <div className="w-full shrink-0 flex flex-col flex-1 lg:mx-5 pointer-events-auto">
           <div className="lg:hidden h-[112px]" />

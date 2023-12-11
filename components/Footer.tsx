@@ -8,7 +8,7 @@ const Footer = () => {
           <span>
             © 2023 Site designed/developed by Lian Fumerton-Liu & Colin Dunn
           </span>
-          <span className="hidden lg:block">Last updated 11.07.23</span>
+          <span className="hidden lg:block">Last updated 12.10.23</span>
         </div>
       </Card>
     </div>

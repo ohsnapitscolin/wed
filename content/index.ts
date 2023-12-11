@@ -110,6 +110,7 @@ export const ContentList: Array<SectionContent> = [
     key: "travel",
     title: "🌎 Travel",
     Content: Sections.Travel,
+    Note: Notes.Travel,
     pins: [
       {
         image: BBQ,

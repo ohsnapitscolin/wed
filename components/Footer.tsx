@@ -6,9 +6,9 @@ const Footer = () => {
       <Card className="bg-white/40 backdrop-blur md:bg-white px-6 py-3 m-5">
         <div className="flex flex-col lg:flex-row w-full justify-between">
           <span>
-            © 2023 Site designed/developed by Lian Fumerton-Liu & Colin Dunn
+            © 2024 Site designed/developed by Lian Fumerton-Liu & Colin Dunn
           </span>
-          <span className="hidden lg:block">Last updated 12.10.23</span>
+          <span className="hidden lg:block">Last updated 02.18.24</span>
         </div>
       </Card>
     </div>

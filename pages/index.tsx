@@ -1,7 +1,7 @@
 import Card from "@/components/Card";
 import NextImage from "next/image";
 
-import Flower from "@/public/images/flower.jpg";
+import Sky from "@/public/images/sky.jpg";
 
 import { ContentList, SectionContent } from "@/content";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -80,7 +80,7 @@ export default function Home() {
     <div className="relative lg:pb-80 overflow-hidden">
       <div className="fixed w-screen h-screen top-0 z-[-2]">
         <NextImage
-          src={Flower}
+          src={Sky}
           quality={100}
           layout="fill"
           placeholder="empty"
@@ -134,7 +134,7 @@ export default function Home() {
           {ContentList.map((content, index) => (
             <Section
               key={content.key}
-              className={`mt-[6px] lg:mt-5 ${index === 0 && "bg-lemongrass"}`}
+              className={`mt-[6px] lg:mt-5 ${index === 0 && "!bg-lemongrass"}`}
               content={content}
             />
           ))}

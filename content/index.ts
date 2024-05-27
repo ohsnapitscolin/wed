@@ -10,6 +10,8 @@ import Nashville from "@/public/images/nashville.png";
 import Joshua from "@/public/images/joshua.png";
 import Then from "@/public/images/then.png";
 import Now from "@/public/images/now.png";
+import Couch from "@/public/images/couch.png";
+import Door from "@/public/images/door.png";
 
 import { MDXProps } from "mdx/types";
 import { StaticImageData } from "next/image";
@@ -44,12 +46,23 @@ export const ContentList: Array<SectionContent> = [
     Content: Sections.Welcome,
     pins: [
       {
-        image: Now,
+        image: Couch,
         location: "bottom",
         rotation: -12,
         overlap: 25,
-        offset: 50,
-        size: 15,
+        offset: 40,
+        size: 100,
+        magnet: {
+          offset: 65,
+        },
+      },
+      {
+        image: Now,
+        location: "bottom",
+        rotation: 12,
+        overlap: 25,
+        offset: 70,
+        size: 2,
       },
     ],
     navigation: false,
@@ -151,7 +164,7 @@ export const ContentList: Array<SectionContent> = [
         location: "right",
         rotation: -12,
         overlap: 15,
-        offset: 30,
+        offset: 10,
         size: 30,
         magnet: {
           offset: 65,
@@ -164,6 +177,14 @@ export const ContentList: Array<SectionContent> = [
         overlap: 150,
         offset: 95,
         size: 15,
+      },
+      {
+        image: Door,
+        location: "left",
+        rotation: 4,
+        overlap: 15,
+        offset: 50,
+        size: 5,
       },
     ],
     navigation: true,

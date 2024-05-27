@@ -7,13 +7,13 @@ const RSVP = ({ className }) => {
     >
       <h3 className="font-pin text-[32px] lg:text-[42px] mb-4">RSVP</h3>
       <p>
-        Please RSVP{" "}
+        ✔️ Please{" "}
         <a
           href="https://www.zola.com/wedding/colinandlian/rsvp"
           target="__blank"
           className="underline"
         >
-          at this link
+          RSVP at this link
         </a>{" "}
         by June 28th.
       </p>

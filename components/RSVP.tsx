@@ -14,8 +14,8 @@ const RSVP = ({ className }) => {
           className="underline"
         >
           RSVP at this link
-        </a>{" "}
-        by June 28th.
+        </a>
+        .
       </p>
     </Card>
   );

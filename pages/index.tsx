@@ -103,6 +103,14 @@ export default function Home() {
           ref={navContainerRef}
           className="hidden lg:flex w-[20%] flex flex-col px-0"
         >
+          <a
+            href="https://www.zola.com/wedding/colinandlian/registry"
+            target="__blank"
+          >
+            <Card className="px-4 lg:py-9 hover:bg-white mb-3">
+              💝 Registry
+            </Card>
+          </a>
           {Navigation.map(({ title, id }) => {
             return (
               <button
@@ -117,12 +125,6 @@ export default function Home() {
               </button>
             );
           })}
-          <a
-            href="https://www.zola.com/wedding/colinandlian/registry"
-            target="__blank"
-          >
-            <Card className="px-4 lg:py-9 hover:bg-white">💝 Registry</Card>
-          </a>
         </div>
       </div>
 
@@ -130,14 +132,6 @@ export default function Home() {
         <div className="w-0 lg:w-[20%] flex flex-col" />
         <div className="w-full shrink-0 flex flex-col flex-1 lg:mx-5 pointer-events-auto">
           <div className="lg:hidden h-[132px] md:h-[148px]" />
-          <RSVP className="flex lg:hidden" />
-          {ContentList.map((content, index) => (
-            <Section
-              key={content.key}
-              className={`mt-[6px] lg:mt-5 ${index === 0 && "!bg-lemongrass"}`}
-              content={content}
-            />
-          ))}
           <a
             href="https://www.zola.com/wedding/colinandlian/registry"
             target="__blank"
@@ -146,6 +140,21 @@ export default function Home() {
               💝 Registry
             </Card>
           </a>
+          {ContentList.slice(0, 1).map((content) => (
+            <Section
+              key={content.key}
+              className={`mt-[6px] lg:mt-5 !bg-lemongrass`}
+              content={content}
+            />
+          ))}
+          <RSVP className="flex lg:hidden" />
+          {ContentList.slice(1).map((content) => (
+            <Section
+              key={content.key}
+              className={`mt-[6px] lg:mt-5`}
+              content={content}
+            />
+          ))}
         </div>
         <div className="w-0 lg:w-[20%] flex flex-col pointer-events-none" />
       </div>
